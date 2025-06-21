@@ -1,0 +1,11 @@
+{
+  "name": "chat-realtime",
+  "scripts": {
+    "start:server": "node server/server.js",
+    "start:client": "cd client && ng serve",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
