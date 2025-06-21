@@ -17,8 +17,18 @@ export class App implements OnInit {
 
   private readonly chatService = inject(ChatService);
 
+  public username: string = '';
+  public isUsernameSet: boolean = false;
+  setUsername(): void {
+    if (this.username.trim()) {
+      this.isUsernameSet = true;
+      console.log('Username set:', this.username);
+    } else {
+      console.error('Username cannot be empty');
+    }
+  }
+
   ngOnInit(): void {
-    
     this.chatService.getMessages().subscribe(message => {
       this.messages.push(message);
       console.log('App initialized');

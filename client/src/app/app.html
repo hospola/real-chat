@@ -1,24 +1,40 @@
-<div class="connected-users">
-  Mensajes: {{ messages.length }}
-</div>
-<div class="center-box">
-  <div class="messages-container">
-    <div *ngFor="let message of messages" class="message">
-      {{ message }}
-    </div>
-    <div *ngIf="messages.length === 0" class="no-messages">
-      No hay mensajes aún. ¡Envía el primero!
-    </div>
+<!-- Username input section - only shown when username is not set -->
+<div *ngIf="!isUsernameSet" class="username-section">
+  <div class="insert-username">
+    <input 
+      type="text" 
+      placeholder="Escribe tu nombre de usuario..." 
+      class="username-input" 
+      [(ngModel)]="username"
+      (keyup.enter)="setUsername()" />
+    <button class="set-username-button" (click)="setUsername()">Establecer Nombre</button>
   </div>
 </div>
 
-<div class="message-box">
-  <input 
-    type="text" 
-    placeholder="Escribe tu mensaje aquí..." 
-    class="message-input" 
-    [(ngModel)]="currentMessage"
-    (keyup.enter)="sendMessage()" />
-  <button class="send-button" (click)="sendMessage()">Enviar</button>
+<!-- Chat interface - only shown when username is set -->
+<div *ngIf="isUsernameSet" class="chat-interface">
+  <div class="connected-users">
+    Mensajes: {{ messages.length }}
+  </div>
+  <div class="center-box">
+    <div class="messages-container">
+      <div *ngFor="let message of messages" class="message">
+        {{ message }}
+      </div>
+      <div *ngIf="messages.length === 0" class="no-messages">
+        No hay mensajes aún. ¡Envía el primero!
+      </div>
+    </div>
+  </div>
+
+  <div class="message-box">
+    <input 
+      type="text" 
+      placeholder="Escribe tu mensaje aquí..." 
+      class="message-input" 
+      [(ngModel)]="currentMessage"
+      (keyup.enter)="sendMessage()" />
+    <button class="send-button" (click)="sendMessage()">Enviar</button>
+  </div>
 </div>
 
