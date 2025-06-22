@@ -13,7 +13,7 @@ export class App implements OnInit {
   protected title = 'client';
 
   public currentMessage: string = '';
-  public messages: string[] = [];
+  public messages: { username: string; message: string }[] = [];
 
   private readonly chatService = inject(ChatService);
 
@@ -30,14 +30,15 @@ export class App implements OnInit {
 
   ngOnInit(): void {
     this.chatService.getMessages().subscribe(message => {
-      this.messages.push(message);
-      console.log('App initialized');
+      this.messages.push({ username: message['username'], message: message['message'] });
+      console.log('Messages', this.messages);
     });
   }
   sendMessage(): void {
     console.log('Sending message:', this.currentMessage);
     if (this.currentMessage.trim()) {
-      this.chatService.sendMessage(this.currentMessage);
+      const data = { username: this.username, message: this.currentMessage };
+      this.chatService.sendMessage(data);
       this.currentMessage = '';
       console.log('Message sent:', this.currentMessage);
     }

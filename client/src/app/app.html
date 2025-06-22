@@ -19,7 +19,7 @@
   <div class="center-box">
     <div class="messages-container">
       <div *ngFor="let message of messages" class="message">
-        {{ message }}
+        {{ message.username }}: {{ message.message }}
       </div>
       <div *ngIf="messages.length === 0" class="no-messages">
         No hay mensajes aún. ¡Envía el primero!
