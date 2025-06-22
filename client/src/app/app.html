@@ -14,7 +14,7 @@
 <!-- Chat interface - only shown when username is set -->
 <div *ngIf="isUsernameSet" class="chat-interface">
   <div class="connected-users">
-    Mensajes: {{ messages.length }}
+    <span class="message-count">Mensajes: {{ messages.length }}</span>
   </div>
   <div class="center-box">
     <div class="messages-container">
