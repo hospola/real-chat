@@ -99,11 +99,6 @@ real-chat/
 └── README.md
 ```
 
-## 🔌 API del Socket
-
-
-## 🚧 Desarrollo
-
 ### Scripts disponibles
 
 #### Proyecto principal
