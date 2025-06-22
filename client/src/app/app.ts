@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChatService } from './chat/chat.service';
@@ -16,6 +16,7 @@ export class App implements OnInit {
   public messages: { username: string; message: string }[] = [];
 
   private readonly chatService = inject(ChatService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   public username: string = '';
   public isUsernameSet: boolean = false;
@@ -31,6 +32,7 @@ export class App implements OnInit {
   ngOnInit(): void {
     this.chatService.getMessages().subscribe(message => {
       this.messages.push({ username: message['username'], message: message['message'] });
+      this.cdr.detectChanges();
       console.log('Messages', this.messages);
     });
   }

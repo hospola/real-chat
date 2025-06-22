@@ -121,7 +121,7 @@ min-width: 350px;
 }
 
 .message-count::before {
-  content: "💬 Mensajes en tiempo real";
+  content: "💬 Mensajes";
   font-weight: 600;
   font-size: 14px;
   color: #495057;

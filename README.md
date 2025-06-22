@@ -2,8 +2,6 @@
 
 Una aplicación de chat en tiempo real construida con Angular y Node.js usando Socket.IO para comunicación bidireccional instantánea.
 
-> ⚠️ Nota: Los mensajes pueden tardar un poco en llegar debido a la configuración del servidor.
-
 ## 🛠️ Tecnologías
 
 ### Frontend
